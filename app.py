@@ -59,6 +59,7 @@ def index():
     subprocess.check_output(['scrapy', 'crawl','tech'])
     print('crawler project is executed！')
     #os.system('scrapy crawl tech')#fk需要执行的py文件
+    conn.ping(reconnect=True)
     cur = conn.cursor()
     cur.execute('select * from context')
     cont = cur.fetchall()
