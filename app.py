@@ -19,8 +19,8 @@ app = Flask(__name__)
 
 conn = pymysql.connect(
     host='rm-bp1mv8ua26rj84t32eo.mysql.rds.aliyuncs.com',
-    user='runtrend',
-    password='4rfv*UHB',
+    user='',
+    password='',
     db='spider',
     port=3306
 )
@@ -54,22 +54,25 @@ def json_request():
 
 @app.route('/asin',methods = ["GET"])#浏览器接口路径
 def index():
-    print('start crawler project！')
-    #execute(['scrapy', 'crawl', 'tech'])
-    subprocess.check_output(['scrapy', 'crawl','tech'])
-    print('crawler project is executed！')
-    #os.system('scrapy crawl tech')#fk需要执行的py文件
+
     conn.ping(reconnect=True)
     cur = conn.cursor()
     cur.execute('select * from context')
     cont = cur.fetchall()
 
     payload = []
-    content = {}
-    for i in cont:
-      content = {'title': i[0],'url':i[1]}
-      payload.append(content)
+    if cont is not None:
       content = {}
+      for i in cont:
+        content = {'title': i[0],'url':i[1]}
+        payload.append(content)
+        content = {}
+    else:
+      print('start crawler project！')
+      # execute(['scrapy', 'crawl', 'tech'])
+      subprocess.check_output(['scrapy', 'crawl', 'tech'])
+      print('crawler project is executed！')
+      # os.system('scrapy crawl tech')#fk需要执行的py文件
 
     return jsonify(payload)
 
