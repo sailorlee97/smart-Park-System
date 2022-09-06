@@ -44,12 +44,9 @@ def json_request():
   oth_percent = '{:.0%}'.format(other_person / total_persons)
   stu_percent = '{:.0%}'.format(student_person / total_persons)
 
-  #data = json.loads(request.data)
-  #user_name = data['personName']
-  #user_type = data['personType']
-  #user_place = data['place']
+  payload = {'Teacher': teac_percent,'Staff':oth_percent,'Student':stu_percent}
 
-  return "teacherPercent = %s, otherPercent = %s,studentPercent = %s"%(teac_percent,oth_percent,stu_percent)
+  return jsonify(payload)
 
 
 @app.route('/asin',methods = ["GET"])#浏览器接口路径
