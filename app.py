@@ -19,8 +19,8 @@ app = Flask(__name__)
 
 conn = pymysql.connect(
     host='rm-bp1mv8ua26rj84t32eo.mysql.rds.aliyuncs.com',
-    user='',
-    password='',
+    user='runtrend',
+    password='4rfv*UHB',
     db='spider',
     port=3306
 )
@@ -59,11 +59,9 @@ def index():
 
     payload = []
     if cont is not None:
-      content = {}
       for i in cont:
         content = {'title': i[0],'url':i[1]}
         payload.append(content)
-        content = {}
     else:
       print('start crawler project！')
       # execute(['scrapy', 'crawl', 'tech'])
@@ -71,6 +69,26 @@ def index():
       print('crawler project is executed！')
       # os.system('scrapy crawl tech')#fk需要执行的py文件
 
+    return jsonify(payload)
+
+@app.route('/test',methods = ["GET"])
+def obtain():
+    payload = [
+        {'title:':'2022年度市碳达峰碳中和科技创新专项拟立项项目公示' , 'url':'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220926_3708323.html'},
+        {'title:':'2021年南京市初创科技型企业经济贡献奖励名单公示' ,'url':'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220926_3707821.html'},
+        {'title:': '市科技局关于开展南京市星创天地建设与绩效评价工作的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220915_3698798.html'},
+        {'title:': '关于开展2021年度南京临床医学研究中心绩效评价的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220907_3693147.html'},
+        {'title:': '市科技局关于开展高校校友会促进创新创业绩效奖励申报工作的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220906_3692112.html'},
+        {'title:': '关于开展2022年南京市技术转移奖补资金申报工作的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220831_3687223.html'},
+        {'title:': '关于组织开展2021年度南京市众创空间绩效评价工作的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220824_3680588.html'},
+        {'title:': '关于组织开展2021年度南京市科技企业孵化器绩效评价工作的通知',
+         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220824_3680580.html'}
+    ]
     return jsonify(payload)
 
 @app.route('/')
