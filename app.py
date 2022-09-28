@@ -13,7 +13,7 @@ import os
 import pymysql
 from pandas import DataFrame
 import subprocess
-from scrapy.cmdline import execute
+from scrapy import Selector
 
 app = Flask(__name__)
 
@@ -48,48 +48,43 @@ def json_request():
 
   return jsonify(payload)
 
-
-@app.route('/asin',methods = ["GET"])#浏览器接口路径
-def index():
-
-    conn.ping(reconnect=True)
-    cur = conn.cursor()
-    cur.execute('select * from context')
-    cont = cur.fetchall()
-
-    payload = []
-    if cont is not None:
-      for i in cont:
-        content = {'title': i[0],'url':i[1]}
-        payload.append(content)
-    else:
-      print('start crawler project！')
-      # execute(['scrapy', 'crawl', 'tech'])
-      subprocess.check_output(['scrapy', 'crawl', 'tech'])
-      print('crawler project is executed！')
-      # os.system('scrapy crawl tech')#fk需要执行的py文件
-
-    return jsonify(payload)
-
-@app.route('/test',methods = ["GET"])
+@app.route('/asin',methods = ["GET"])
 def obtain():
-    payload = [
-        {'title:':'2022年度市碳达峰碳中和科技创新专项拟立项项目公示' , 'url':'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220926_3708323.html'},
-        {'title:':'2021年南京市初创科技型企业经济贡献奖励名单公示' ,'url':'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220926_3707821.html'},
-        {'title:': '市科技局关于开展南京市星创天地建设与绩效评价工作的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220915_3698798.html'},
-        {'title:': '关于开展2021年度南京临床医学研究中心绩效评价的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220907_3693147.html'},
-        {'title:': '市科技局关于开展高校校友会促进创新创业绩效奖励申报工作的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202209/t20220906_3692112.html'},
-        {'title:': '关于开展2022年南京市技术转移奖补资金申报工作的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220831_3687223.html'},
-        {'title:': '关于组织开展2021年度南京市众创空间绩效评价工作的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220824_3680588.html'},
-        {'title:': '关于组织开展2021年度南京市科技企业孵化器绩效评价工作的通知',
-         'url': 'http://kw.nanjing.gov.cn/njskxjswyh/202208/t20220824_3680580.html'}
-    ]
+    url = "http://kw.nanjing.gov.cn/"
+    # headers = {
+    #    "User-Agent":" Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+    # }
+
+    rsp = requests.get(url)
+
+    if rsp.status_code != 200:
+        raise Exception("anti reptile!")
+
+    # rsp = rsp.text.encode('iso-8859-1').decode('utf-8')
+    # demo1 > li:nth-child(1) > a
+    sel = Selector(text=rsp.text)
+    urls = sel.xpath('/html/body/div[3]/div[1]/div[3]/div[2]/div[1]//a/@href').extract()
+    titles = sel.xpath('/html/body/div[3]/div[1]/div[3]/div[2]/div[1]//a//text()').extract()
+
+    encode_titles = []
+    for i in titles:
+        encode_titles.append(i.encode('iso-8859-1').decode('utf-8'))
+        # print(i)
+    # for index, c_node  in enumerate(c_nodes):
+    new_url = _get_whole_url(urls, url)
+    payload = []
+    for i in range(len(new_url)):
+        content = {'title': encode_titles[i], 'url': new_url[i]}
+        payload.append(content)
+    print(payload)
+
     return jsonify(payload)
+
+def _get_whole_url(list,start_urls):
+    new_list = []
+    for item in list:
+      new_list.append(start_urls+item[2:])
+    return new_list
 
 @app.route('/')
 def hello_world():  # put application's code here
