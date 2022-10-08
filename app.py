@@ -80,6 +80,69 @@ def obtain():
 
     return jsonify(payload)
 
+def obtainIndustryInformation():
+    url = "http://jxw.nanjing.gov.cn/"
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'}
+    rsp = requests.get(url,headers = headers)
+
+    if rsp.status_code != 200:
+        raise Exception("anti reptile!")
+    sel = Selector(text=rsp.text)
+    urls = sel.xpath('/html/body/div[5]/div[1]/div[2]/div[4]/ul//a/@href').extract()
+    titles = sel.xpath('/html/body/div[5]/div[1]/div[2]/div[4]/ul//a//text()').extract()
+    encode_titles = []
+    for i in titles:
+        encode_titles.append(i.encode('iso-8859-1').decode('utf-8'))
+        # print(i)
+    # for index, c_node  in enumerate(c_nodes):
+    new_url = _get_whole_url(urls, url)
+    payload = []
+    for i in range(len(new_url)):
+        content = {'title': encode_titles[i].rstrip().lstrip(), 'url': new_url[i]}
+        payload.append(content)
+    print(payload)
+
+    return jsonify(payload)
+
+def obtainProvincetech():
+  url = "http://kxjst.jiangsu.gov.cn/"
+  headers = {
+    #"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    #"Accept-Encoding": "gzip, deflate",
+    #"Accept-Language": "zh-CN,zh;q=0.9",
+    #"Cookie": "JSESSIONID=97F070A8C64A24BB0EC1C97D2E8A9D11; __jsluid_h=0a8c17b9085327cccceb729c45946a1f",
+    #"Host": "www.jiangsu.gov.cn",
+    #"Proxy-Connection": "keep-alive",
+    #"Referer": "http://kxjst.jiangsu.gov.cn/",
+    #"Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+   }
+
+  rsp = requests.get(url,headers = headers)
+
+  if rsp.status_code != 200:
+    raise Exception("anti reptile!")
+
+  # rsp = rsp.text.encode('iso-8859-1').decode('utf-8')
+  # demo1 > li:nth-child(1) > a
+  sel = Selector(text=rsp.text)
+  urls = sel.xpath('//*[@id="nav_1"]/div[4]/div[2]/div[1]/div[2]/ul//a/@href').extract()
+  titles = sel.xpath('//*[@id="nav_1"]/div[4]/div[2]/div[1]/div[2]/ul//a//text()').extract()
+
+  encode_titles = []
+  for i in titles:
+    encode_titles.append(i.encode('iso-8859-1').decode('utf-8'))
+    # print(i)
+  # for index, c_node  in enumerate(c_nodes):
+  new_url = _get_whole_url(urls, url)
+  payload = []
+  for i in range(len(new_url)):
+    content = {'title': encode_titles[i], 'url': new_url[i]}
+    payload.append(content)
+  print(payload)
+
+  return jsonify(payload)
+
 def _get_whole_url(list,start_urls):
     new_list = []
     for item in list:
