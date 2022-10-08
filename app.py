@@ -89,7 +89,7 @@ def obtainIndustryInformation():
         raise Exception("anti reptile!")
     sel = Selector(text=rsp.text)
     urls = sel.xpath('/html/body/div[5]/div[1]/div[2]/div[4]/ul//a/@href').extract()
-    titles = sel.xpath('/html/body/div[5]/div[1]/div[2]/div[4]/ul//a//text()').extract()
+    titles = sel.xpath('/html/body/div[5]/div[1]/div[2]/div[4]/ul//a//@title').extract()
     encode_titles = []
     for i in titles:
         encode_titles.append(i.encode('iso-8859-1').decode('utf-8'))
@@ -98,7 +98,7 @@ def obtainIndustryInformation():
     new_url = _get_whole_url(urls, url)
     payload = []
     for i in range(len(new_url)):
-        content = {'title': encode_titles[i].rstrip().lstrip(), 'url': new_url[i]}
+        content = {'title': encode_titles[i], 'url': new_url[i]}
         payload.append(content)
     print(payload)
 
