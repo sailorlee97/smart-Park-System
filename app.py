@@ -107,14 +107,6 @@ def obtainIndustryInformation():
 def obtainProvincetech():
   url = "http://kxjst.jiangsu.gov.cn/"
   headers = {
-    #"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    #"Accept-Encoding": "gzip, deflate",
-    #"Accept-Language": "zh-CN,zh;q=0.9",
-    #"Cookie": "JSESSIONID=97F070A8C64A24BB0EC1C97D2E8A9D11; __jsluid_h=0a8c17b9085327cccceb729c45946a1f",
-    #"Host": "www.jiangsu.gov.cn",
-    #"Proxy-Connection": "keep-alive",
-    #"Referer": "http://kxjst.jiangsu.gov.cn/",
-    #"Upgrade-Insecure-Requests": "1",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
    }
 
