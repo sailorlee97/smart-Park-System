@@ -4,7 +4,8 @@ import Homevue from '@/components/Homevue'
 import Infovue from '@/components/Info'
 import chanxuevue from '@/components/chanxue'
 import companyinfovue from '@/components/companyinfo'
-import companyvue from '@/components/company'
+import companyvue1 from '@/components/company1'
+import companyvue2 from '@/components/company2'
 Vue.use(Router)
 
 export default new Router({
@@ -30,9 +31,14 @@ export default new Router({
       component: companyinfovue
     },
     {
-      path: '/company',
-      name: 'companyPage',
-      component: companyvue
+      path: '/company1',
+      name: 'companyPage1',
+      component: companyvue1
+    },
+    {
+      path: '/company2',
+      name: 'companyPage2',
+      component: companyvue2
     }
   ]
 })

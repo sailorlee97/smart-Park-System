@@ -1,0 +1,50 @@
+div#container{
+	width: 75%;
+	margin:0 auto;
+}
+.col_menu{
+    display:block;
+    width:25%;
+    min-height:400px;
+    float:left;
+    margin-top:15px;
+
+}
+.col_menu_con{
+    margin-top:10px;
+}
+ul.wp_listcolumn a:hover{
+    color:#4A5AA5 !important;
+}
+.col_news{
+    display:block;
+    width:70%;
+    min-height:400px;
+    float:right;
+    margin-top:15px;
+}
+span.Column_Anchor{
+    color:#666;
+}
+ul.col_metas.clearfix{
+    color:#666;
+}
+.article{
+    margin-top:15px;
+}
+h1.arti_title{
+	text-align: center;
+    color:#666;
+    font-size:26px;
+}
+p.arti_metas{
+	text-align: center;
+    color:#666;
+    margin-top:15px;
+}
+.wp_articlecont{
+    margin-top:30px;
+}
+.arti_subtitle{
+    font-size:16px;
+}

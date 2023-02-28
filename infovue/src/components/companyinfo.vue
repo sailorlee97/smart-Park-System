@@ -1,4 +1,17 @@
 <template>
+    <div class="box">
+     <div class="col_news">
+        <div class="col_news_head" frag="面板5">
+            <ul class="col_metas clearfix" frag="窗口5" portletmode="simpleColumnAttri">
+
+                <li class="col_title">
+                    <h2>产业大脑</h2>
+                </li>
+                <li class="col_path"><span class="path_name">当前位置：</span><a href="http://127.0.0.1:8080/#/"
+                        target="_self">首页</a><span class='possplit'>&nbsp;&nbsp;</span><a
+                        href="http://127.0.0.1:8080/#/companyinfo" target="_self">产业大脑</a></li>
+            </ul>
+        </div>
     <div class="staticdiv">
         <!-- <button @click="kuayu">"跨域请求"</button> -->
         <el-table :data="tableData"  style="width: 100%" >
@@ -15,6 +28,8 @@
             <el-table-column prop="经营范围" label="经营范围"> </el-table-column>
         </el-table> -->
     </div>
+</div>
+</div>
 </template>
 
 <script>
@@ -79,4 +94,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.box {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}</style>
