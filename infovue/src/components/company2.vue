@@ -18,15 +18,12 @@
                                 <li class="wp_column column-1 ">
                                     <a href="http://127.0.0.1:8080/#/company1" title="2022年科技型中小企业清单" class="" target="_self"><span
                                             class="column-name">2022年科技型中小企业清单</span></a>
-
                                 </li>
 
                                 <li class="wp_column column-2 selected">
                                     <a href="http://127.0.0.1:8080/#/company2" title="2022年科技型中小企业清单" class="selected" target="_self"><span
                                             class="column-name">园区有效期内高企清单</span></a>
-
                                 </li>
-
                             </ul>
 
                         </div>
@@ -102,23 +99,6 @@
                                         <p>
                                             <br />
                                         </p>
-                                        <!--                          <ul class="wp_article_list">
-
-                                <li class="list_item i1" >
-                                    <div class="fields pr_fields">
-                                        <span class='Article_Index'>1</span>
-                                        <span class='Article_Title'><a href='/2017/0710/c8643a110133/page.htm'
-                                                target='_blank'
-                                                title='江苏省台联2017年台胞青年夏令营来我校物联网国家大学科技园参观'>江苏省台联2017年台胞青年夏令营来我校物联网国家大学科技园参观</a></span>
-                                    </div>
-                                    <div class="fields ex_fields">
-
-                                        <span class='Article_PublishDate'>2017-07-10</span>
-
-                                    </div>
-                                </li>
-
-                            </ul> -->
                                     </div>
                                 </div>
                             </div>

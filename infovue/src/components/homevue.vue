@@ -13,9 +13,9 @@
             <tr>
                 <th class="class1"><router-link to="/companyinfo"
                         style="color:black; text-decoration: none;">产业大脑</router-link></th>
-                <th class="class1"><router-link to="/chanxue"
-                        style="color:black; text-decoration: none;">产学研合作</router-link></th>
-                <th class="class1"><a href=" " style="color:black; text-decoration: none;">科技动态</a></th>
+                <th class="class1"><router-link to="/keji"
+                        style="color:black; text-decoration: none;">科技动态</router-link></th>
+                <th class="class1"><a href=" " style="color:black; text-decoration: none;">产学研合作</a></th>
             </tr>
         </table>
     </div>

@@ -14,7 +14,7 @@
       </div>
       <div class="info">
         <button @click="drawLine">"load-data"</button>
-        <div class="HelloWorld echart-box" id="myChart1"
+        <div class="echart-box" id="myChart1"
           :style="{ width: '1000px', height: '500px', background: '#ffffff' }">
         </div>
         <!--     <button @click="kuayu">"跨域请求"</button>
@@ -128,4 +128,8 @@ export default {
     width: 100%;
     display: flex;
     justify-content: center
-}</style>
+}
+.echart-box{
+  width: 100%;
+}
+</style>

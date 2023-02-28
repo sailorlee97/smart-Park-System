@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Homevue from '@/components/Homevue'
 import Infovue from '@/components/Info'
-import chanxuevue from '@/components/chanxue'
+import kejivue from '@/components/keji'
 import companyinfovue from '@/components/companyinfo'
 import companyvue1 from '@/components/company1'
 import companyvue2 from '@/components/company2'
@@ -21,9 +21,9 @@ export default new Router({
       component: Infovue
     },
     {
-      path: '/chanxue',
-      name: 'chanxuePage',
-      component: chanxuevue
+      path: '/keji',
+      name: 'kejiPage',
+      component: kejivue
     },
     {
       path: '/companyinfo',
