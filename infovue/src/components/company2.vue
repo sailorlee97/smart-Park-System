@@ -16,12 +16,12 @@
                             <ul class="wp_listcolumn">
 
                                 <li class="wp_column column-1 ">
-                                    <a href="http://127.0.0.1:8080/#/company1" title="2022年科技型中小企业清单" class="" target="_self"><span
+                                    <a href="http://localhost:8080/#/company1" title="2022年科技型中小企业清单" class="" target="_self"><span
                                             class="column-name">2022年科技型中小企业清单</span></a>
                                 </li>
 
                                 <li class="wp_column column-2 selected">
-                                    <a href="http://127.0.0.1:8080/#/company2" title="2022年科技型中小企业清单" class="selected" target="_self"><span
+                                    <a href="http://localhost:8080/#/company2" title="2022年科技型中小企业清单" class="selected" target="_self"><span
                                             class="column-name">园区有效期内高企清单</span></a>
                                 </li>
                             </ul>
@@ -37,9 +37,9 @@
                         <li class="col_title">
                             <h2>园区有效期内高企清单</h2>
                         </li>
-                        <li class="col_path"><span class="path_name">当前位置：</span><a href="http://127.0.0.1:8080/#/"
-                                target="_self">首页</a><span class='possplit'>&nbsp;&nbsp;</span><a href="http://127.0.0.1:8080/#/company1"
-                                target="_self">企业</a><span class='possplit'>&nbsp;&nbsp;</span><a href="http://127.0.0.1:8080/#/company2"
+                        <li class="col_path"><span class="path_name">当前位置：</span><a href="http://localhost:8080/#/"
+                                target="_self">首页</a><span class='possplit'>&nbsp;&nbsp;</span><a href="http://localhost:8080/#/company1"
+                                target="_self">企业</a><span class='possplit'>&nbsp;&nbsp;</span><a href="http://localhost:8080/#/company2"
                                 target="_self">园区有效期内高企清单</a></li>
                     </ul>
                 </div>
@@ -150,9 +150,4 @@ export default {
 .tabd{
     margin: auto;
 }
-/* .table_box{
-    display: flex;
-}
-.table1{
-    margin: auto;
-} */</style>
+</style>

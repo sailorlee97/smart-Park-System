@@ -1,52 +1,68 @@
 <template>
-    <div id="home" class="Home">
-        <table class="hometable">
-            <tr>
-                <th class="class1">
-            <tr>
-                <img  class="img1" src="../pictures/introduction.jpg">
-            </tr>
-            <tr>
-                <a href="http://127.0.0.1/ny/#/" style="color:black; text-decoration: none;">园区概况</a>
-            </tr>
-            </th>
-            <th class="class1">
-                <tr>
-                    <img  class="img1" src="../pictures/information.jpg">
-                </tr>
-                <tr>
-                    <router-link to="/Info" style="color:black; text-decoration: none;">信息统计</router-link>
-                </tr>
-            </th>
-            <th class="class1">
-                <tr>
-                    <img  class="img1" src="../pictures/company.jpg">
-                </tr>
-                <tr><router-link to="/company1" style="color:black; text-decoration: none;">企业</router-link></tr>
-            </th>
-            </tr>
-            <tr>
-                <th class="class1">
-            <tr>
-                <img  class="img1" src="../pictures/brain.jpg">
-            </tr>
-            <tr><router-link to="/companyinfo" style="color:black; text-decoration: none;">产业大脑</router-link></tr>
-            </th>
-            <th class="class1">
-                <tr>
-                    <img  class="img1" src="../pictures/police.jpg">
-                </tr>
-                <tr><router-link to="/keji" style="color:black; text-decoration: none;">科技动态</router-link></tr>
-            </th>
-            <th class="class1">
-                <tr>
-                    <img  class="img1" src="../pictures/chanxueyan.jpg">
-                </tr>
-                <tr><a href=" " style="color:black; text-decoration: none;">产学研合作</a></tr>
-            </th>
-            </tr>
-        </table>
+<div class="zong">
+    <div  class="home">
+    <ul>
+        <li class="span3" style="height: 300px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/introduction.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/haoxinshu">查看详情</a>-->
+                </div>
+                <h3 title="园区概况" class=""><a href="http://127.0.0.1/ny/#/" style="color: #3498db;">园区概况</a></h3>
+             </div>
+        </li>
+        <li class="span3" style="height: 300px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/information.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/haoxinshu">查看详情</a>-->
+                </div>
+                <h3 title="信息统计" class=""><a href="http://localhost:8080/#/Info" style="color: #3498db;">信息统计</a></h3>
+            </div>
+        </li>
+        <li class="span3" style="height: 300px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/company.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/haoxinshu">查看详情</a>-->
+                </div>
+                <h3 title="企业" class=""><a href="http://localhost:8080/#/company1" style="color: #3498db;">企业</a></h3>
+           </div>
+        </li>
+        </ul>
     </div>
+    <div  class="home">
+        <ul>
+        <li class="span3" style="height: 0px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/brain.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/homecare">查看详情</a>-->
+                </div>
+                <h3 title="产业大脑" class=""><a href="http://localhost:8080/#/companyinfo" style="color: #3498db;">产业大脑</a></h3>
+            </div>
+        </li>
+        <li class="span3" style="height: 0px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/police.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/telemed">查看详情</a>-->
+                </div>
+                <h3 title="科技动态" class=""><a  href="http://localhost:8080/#/keji" style="color: #3498db;">科技动态</a></h3>
+           </div>
+        </li>
+        <li class="span3" style="height: 0px;">
+            <div class="thumbnail-style thumbnail-kenburn">
+                <div class="thumbnail-img">
+                    <div class="overflow-hidden"><img style="width: 260px;height: 160px;" src="../pictures/chanxueyan.jpg" alt=""></div>
+                    <!--<a class="btn-more hover-effect" href="/product/chronic">查看详情</a>-->
+                </div>
+                <h3 title="产学研合作" class=""><a style="color: #3498db;">产学研合作</a></h3>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
 </template>
 
 <script>
@@ -64,33 +80,15 @@ export default {
 }
 </script>
 
-<style type="text/css">
-/* .bg{
-    width:100%;  
-    height:100%;  
-    z-index:-1;
-    position: absolute;
-} */
+<style scoped>
+@import '../../_css/style.css';
+@import '../../_css/bootstrap.min.css';
+@import '../../_css/bootstrap-responsive.min.css';
 
-.Home {
-    width: 100%;
-    height: 100%;
-}
+@import '../../_css/fonts.css';
 
-.img1{
-    width:200px;
-    height: 100px;
-}
-.class1 {
-    font: 12px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
-    font-size: 35px;
-    font-weight: 1000;
-    color: black;
-}
-
-.hometable {
-    border-spacing: 20px;
-    height: 100%;
-    width: 100%;
+.home{
+    display: flex;
+    justify-content: center
 }
 </style>

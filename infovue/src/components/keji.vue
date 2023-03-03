@@ -7,9 +7,9 @@
                 <li class="col_title">
                     <h2>产学研合作</h2>
                 </li>
-                <li class="col_path"><span class="path_name">当前位置：</span><a href="http://127.0.0.1:8080/#/"
+                <li class="col_path"><span class="path_name">当前位置：</span><a href="http://localhost:8080/#/"
                         target="_self">首页</a><span class='possplit'>&nbsp;&nbsp;</span><a
-                        href="http://127.0.0.1:8080/#/keji" target="_self">产学研合作</a></li>
+                        href="http://localhost:8080/#/keji" target="_self">产学研合作</a></li>
             </ul>
         </div>
         <div class="col_news_con" frag="面板6">
@@ -55,17 +55,6 @@ export default {
                 alert("No data get!")
             })
     }
-    /*   created() {
-        axios.get('/demo/json')
-          .then(res => {
-            this.list = res
-            console.log(res)
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      } */
-
 }
 </script>
   
